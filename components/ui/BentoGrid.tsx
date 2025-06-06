@@ -49,7 +49,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const prefix = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+  //const prefix = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
@@ -74,7 +74,7 @@ export const BentoGridItem = ({
         <div className="absolute h-full w-full">
           {img && (
             <img
-              src={`${prefix}/${img}`}
+              src={`${img}`} //src={`${prefix}/${img}`}
               alt={img}
               className={cn(imgClassName, "object-cover object-center")}
             />
@@ -87,7 +87,7 @@ export const BentoGridItem = ({
         >
           {spareImg && (
             <img
-              src={`${prefix}/${spareImg}`}
+              src={`${spareImg}`}//src={`${prefix}/${spareImg}`}
               alt={spareImg}
               className={"h-full w-full object-cover object-center"}
             />
