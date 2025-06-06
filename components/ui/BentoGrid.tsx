@@ -8,6 +8,7 @@ import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import { useState } from "react";
+import nextConfig from "@/next.config";
 
 export const BentoGrid = ({
   className,
@@ -51,6 +52,9 @@ export const BentoGridItem = ({
 }) => {
   //const prefix = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
+
+  const assetPrefix = nextConfig.assetPrefix || "";
+
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText("kerrrrryuan@gmail.com");
@@ -74,7 +78,7 @@ export const BentoGridItem = ({
         <div className="absolute h-full w-full">
           {img && (
             <img
-              src={`${img}`} //src={`${prefix}/${img}`}
+              src={`${assetPrefix}${img}`}
               alt={img}
               className={cn(imgClassName, "object-cover object-center")}
             />
@@ -87,7 +91,7 @@ export const BentoGridItem = ({
         >
           {spareImg && (
             <img
-              src={`${spareImg}`}//src={`${prefix}/${spareImg}`}
+              src={`${assetPrefix}${spareImg}`}
               alt={spareImg}
               className={"h-full w-full object-cover object-center"}
             />
