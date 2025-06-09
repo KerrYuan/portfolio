@@ -4,10 +4,16 @@ import { cn } from "@/lib/utils";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import nextConfig from "@/next.config";
+import Image from "next/image";
+import {
+  TypewriterEffect,
+  TypewriterEffectSmooth,
+} from "@/components/ui/TypewriterEffect";
 
 const Hero = () => {
   return (
-    <div className="pt-36 pb-20">
+    <div className="min-h-screen pt-36 pb-20">
       {/* Spotlight */}
       <div>
         <Spotlight
@@ -35,20 +41,34 @@ const Hero = () => {
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black-100"></div>
       </div>
 
-      {/* Hero Main content */}
-      <div className="relative z-10 my-20 flex justify-center">
-        <div className="justify center flex max-w-[89vw] flex-col items-center md:max-w-2xl lg:max-w-[60vw]">
-          <h2 className="max-w-80 text-center text-xs tracking-widest text-blue-100 uppercase">
-            Dynamic Web Magic with Next.js
-          </h2>
+      {/* Hero Main Content */}
+      <div className="relative z-10 my-20 grid grid-cols-1 justify-center gap-x-4 md:grid-cols-4 md:gap-x-9 lg:grid-cols-12">
+        {/* Left Part*/}
+        <div className="order-2 flex w-full flex-col items-center justify-center border-2 border-amber-500 md:order-1 md:col-span-3 lg:col-span-8">
+          {/*<h2 className="max-w-80 text-center text-xs tracking-widest text-blue-100 uppercase">*/}
+          {/*  Dynamic Web Magic with Next.js some tech stack of this website*/}
+          {/*</h2>*/}
           <TextGenerateEffect
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Transforming Concepts into Seamless User Experiences"
+            words="I'm Kerr , I'm here."
             duration={3}
             filter={true}
           />
-          <p className="mb-4 text-center text-sm text-black md:text-lg md:tracking-wider lg:text-2xl dark:text-white">
-            Hi, I&apos;m Kerr.
+          <TypewriterEffect
+            words={[
+              {
+                text: " I'm Kerr, I'm here.",
+                className:
+                  "text-center text-[40px] md:text-5xl lg:text-6xl tracking-wide",
+              },
+            ]}
+            cursorClassName="bg-amber-400"
+          />
+
+          <p className="mb-4 text-center text-sm text-black md:text-lg md:tracking-wider lg:text-2xl dark:text-blue-50">
+            some introduction summary... some introduction summary...some
+            introduction summary...some introduction summary...some introduction
+            summary...some introduction summary...
           </p>
           <a href="#about">
             <MagicButton
@@ -57,6 +77,21 @@ const Hero = () => {
               position="right"
             />
           </a>
+        </div>
+
+        {/* Right Image */}
+        <div
+          className={
+            "col-span-1 flex justify-center border-2 border-amber-500 md:order-2 md:pb-24 lg:col-span-4"
+          }
+        >
+          <Image
+            src={`${nextConfig.assetPrefix}/kerrCoding.png`}
+            alt={"A image of Kerr"}
+            width={300}
+            height={300}
+            className={"object-contain"}
+          />
         </div>
       </div>
     </div>

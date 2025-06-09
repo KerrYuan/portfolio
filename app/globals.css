@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-black-default: #000;
+  --color-black-default: #2c2c2c;
   --color-black-100: #000319;
 }
 
@@ -39,7 +39,7 @@
     }
   }
 
-  @keyframes moveInCircle {
+@keyframes moveInCircle {
     0% {
       transform: rotate(0deg);
     }
@@ -51,7 +51,7 @@
     }
   }
 
-  @keyframes moveVertical {
+@keyframes moveVertical {
     0% {
       transform: translateY(-50%);
     }
